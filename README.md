@@ -69,12 +69,15 @@ backend/
 
 ## ⚙️ Environment Configuration
 
-Environment switching lives in `lib/config/environment.dart`. For production builds, either:
+Build flavors are handled via `lib/config/flavor_config.dart` and dart defines:
 
-- flip `isDevelopment` to `false`, **or**
-- override via `--dart-define BACKEND_URL=https://your-railway-app.up.railway.app` and use `String.fromEnvironment` inside `Environment`.
+```bash
+flutter run --dart-define=FLAVOR=development
+flutter run --dart-define=FLAVOR=staging
+flutter run --dart-define=FLAVOR=production
+```
 
-Every direct HTTP call is routed through `Environment.backendUrl`. Avoid hardcoding localhost URLs outside that class.
+`FlavorConfig` picks the backend URL, primary color, and display name. `Environment.backendUrl` and `Environment.appName` simply proxy the selected flavor, so avoid hardcoding URLs elsewhere.
 
 ## 🌐 Building & Deployment
 
