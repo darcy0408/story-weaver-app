@@ -166,8 +166,8 @@ curl -X POST https://story-weaver-app-production.up.railway.app/generate-story \
 ### Current Code State
 
 **Environment Configuration:**
-- `lib/config/environment.dart`: `isDevelopment = false` (production mode)
-- Backend URL: `https://story-weaver-app-production.up.railway.app`
+- `lib/config/flavor_config.dart` selects backend via `--dart-define=FLAVOR=...`
+- Default staging backend: `https://story-weaver-staging.up.railway.app` (override with `CUSTOM_BACKEND_URL`)
 
 **CORS Status:**
 - `backend/app.py` lines 41-49: Currently set to `origins: "*"` (all)
