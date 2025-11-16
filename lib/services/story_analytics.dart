@@ -39,20 +39,23 @@ class StoryAnalytics {
     );
   }
 
-   static Future<void> trackStoryResultAction({
-     required String storyId,
-     required String action,
-     required String theme,
-     Map<String, Object?> extra = const <String, Object?>{},
-   }) async {
-     await _analytics.logEvent(
-       name: 'story_result_action',
-       parameters: {
-         'story_id': storyId,
-         'action': action,
-         'theme': theme,
-         ...extra,
-       },
-     );
-   }
+  static Future<void> trackStoryResultAction({
+    required String storyId,
+    required String action,
+    String? theme,
+    Map<String, Object?> extra = const <String, Object?>{},
+  }) async {
+    final parameters = <String, Object?>{
+      'story_id': storyId,
+      'action': action,
+    };
+    if (theme != null) {
+      parameters['theme'] = theme;
+    }
+    parameters.addAll(extra);
+    await _analytics.logEvent(
+      name: 'story_result_action',
+      parameters: parameters,
+    );
+  }
 }
