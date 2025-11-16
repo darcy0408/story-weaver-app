@@ -33,7 +33,11 @@ void main() {
       });
 
       // Override the API service to use our mock
-      ApiServiceManager.instance = ApiServiceManager.test(mockClient);
+      ApiServiceManager.setTestClient(mockClient);
+    });
+
+    tearDown(() {
+      ApiServiceManager.setTestClient(null);
     });
 
     testWidgets('Complete story creation journey', (tester) async {
