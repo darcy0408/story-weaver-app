@@ -537,7 +537,7 @@ class _StoryScreenState extends State<StoryScreen> {
           // Quick Story Button
           IconButton(
             tooltip: 'Quick Story',
-            icon: const Icon(Icons.flash),
+            icon: const Icon(Icons.flash_on),
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -909,7 +909,7 @@ class _StoryScreenState extends State<StoryScreen> {
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(
-                    Icons.flash,
+                    Icons.flash_on,
                     color: Colors.white,
                     size: 24,
                   ),

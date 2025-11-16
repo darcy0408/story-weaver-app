@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'character_evolution.dart';
 import 'emotions_learning_system.dart';
+import 'therapeutic_models.dart';
 
 /// Types of conflict resolution strategies
 enum ConflictResolutionStrategy {
@@ -529,7 +530,7 @@ class _ConflictResolutionStoriesState extends State<ConflictResolutionStories>
     ];
   }
 
-  void _showChoices() {
+  void _revealChoices() {
     setState(() {
       _showChoices = true;
     });
@@ -769,7 +770,7 @@ class _ConflictResolutionStoriesState extends State<ConflictResolutionStories>
                             SizedBox(
                               width: double.infinity,
                               child: ElevatedButton(
-                                onPressed: _showChoices,
+                                onPressed: _revealChoices,
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: story.strategy.color,
                                   padding: const EdgeInsets.all(16),
@@ -1135,9 +1136,8 @@ class ConflictResolutionStoriesLauncher extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(20),
-      ),
-      child: Column(
-        children: [
+        child: Column(
+          children: [
           const Icon(
             Icons.balance,
             size: 48,
@@ -1186,7 +1186,8 @@ class ConflictResolutionStoriesLauncher extends StatelessWidget {
               ),
             ),
           ),
-        ],
+          ],
+        ),
       ),
     );
   }

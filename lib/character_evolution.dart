@@ -119,8 +119,8 @@ class CharacterEvolution {
   final Map<TherapeuticGoal, int> therapeuticProgress; // 0-100 progress per goal
   final Map<String, int> emotionMastery; // emotion_id -> mastery level (0-100)
   final List<CharacterMilestone> milestones;
-  final Map<String, dynamic> evolvedTraits; // Dynamic traits that change with growth
-  final DateTime lastUpdated;
+  Map<String, dynamic> evolvedTraits; // Dynamic traits that change with growth
+  DateTime lastUpdated;
 
   CharacterEvolution({
     required this.characterId,
